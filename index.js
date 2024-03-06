@@ -10,12 +10,12 @@ const token = process.env.TELEGRAM_BOT_TOKEN;
 
 const bot = new  telegramBot(token, {polling:true});
 
-// bot.on('polling_error', (error) => {
-//     console.error('Polling error:', error);
-//     // Reset the offset to retrieve all updates from the beginning
-//     bot.stopPolling();
-//     bot.startPolling({ restart: true, timeout: 1000 });
-// });
+bot.on('polling_error', (error) => {
+    console.error('Polling error:', error);
+    // Reset the offset to retrieve all updates from the beginning
+    bot.stopPolling();
+    bot.startPolling({ restart: true, timeout: 1000 });
+});
 
 
 bot.on('message', (msg) => {
