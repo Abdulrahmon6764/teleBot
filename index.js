@@ -28,13 +28,13 @@ bot.on('message', (msg) => {
     //     bot.sendMessage(msg.chat.id, response);
     // }
 
-    if(msg.text === "/start"){
-        bot.sendMessage(msg.chat.id,  `Hello! ` + msg.from.first_name +  ` How can I assist you today? Do you have a specific question or topic you'd like to discuss? I'm here to help with any information or assistance you may need!`, {
-            "reply_markup": {
-                "keyboard": [["What is gender?", "Generate Elon musk image","List my neigbour names"]]
-                }
-            });
-    }
+    // if(msg.text === "/start"){
+    //     bot.sendMessage(msg.chat.id,  `Hello! ` + msg.from.first_name +  ` How can I assist you today? Do you have a specific question or topic you'd like to discuss? I'm here to help with any information or assistance you may need!`, {
+    //         "reply_markup": {
+    //             "keyboard": [["What is gender?", "Generate Elon musk image","List my neigbour names"]]
+    //             }
+    //         });
+    // }
 
     // if (msg.text === "What is gender?") {
     // bot.sendMessage(msg.chat.id,"Gender is the identification of female and male");
