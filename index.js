@@ -1,26 +1,11 @@
-
+const dotenv = require("dotenv");
+dotenv.config();
 const telegramBot = require("node-telegram-bot-api");
-const openAI = require("openai");
-
-const openaiApIKey = 'sk-UA5yvvKy4oZx3jVbcNhvT3BlbkFJ7LlNzrSGucd3QLIhvF5Defwefwef'
-
-const openai = new openAI({apiKey:openaiApIKey});
-
-async function main(){
-   const completion = await openai.chat.completions.create({
-    message: [{role:"system", content:"You are a helpful assistant!!!"}],
-    model: "gpt-3.5-turbo"
-   });
-
-   console.log("hello world");
-
-}
-
-main();
 
 
 
-const token = '664377';
+
+const token = process.env.TELEGRAM_BOT_TOKEN;
 
 const bot = new  telegramBot(token, {polling:true});
 
@@ -36,7 +21,11 @@ bot.on('message', (msg) => {
 
     const AAEp3yEUJOD17BjuIYd70QVnn__H8gX1aCQi = "Hi there!";
 
-    const response = "Hello! How can I assist you today? Do you have a specific question or topic you'd like to discuss? I'm here to help with any information or assistance you may need!"
+    const response = "Hello! How can I assist you today? Do you have a specific question or topic you'd like to discuss? I'm here to help with any information or assistance you may need!";
+
+    if(msg.text === "I'm new in this group!!!"){
+        bot.sendMessage(msg.chat.id, response);
+    }
 
     if(msg.text === "/start"){
         bot.sendMessage(msg.chat.id,  `Hello! ` + msg.from.first_name +  ` How can I assist you today? Do you have a specific question or topic you'd like to discuss? I'm here to help with any information or assistance you may need!`, {
